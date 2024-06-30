@@ -225,7 +225,7 @@ const Homepage = () => {
                 class="d-block w-100"
               />
             </div>
-            <div className="card card-35">
+            <div className="card card-34">
               <Image
                 src="./boat.webp"
                 alt="Los Angeles"
