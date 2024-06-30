@@ -7,20 +7,11 @@ import { AiOutlineLinkedin } from "react-icons/ai";
 import { RiTwitterXLine } from "react-icons/ri";
 import { AiFillFacebook } from "react-icons/ai";
 import { GoArrowLeft } from "react-icons/go";
-import { GoArrowRight } from "react-icons/go";
+import { GoArrowRight } from "react-icons/go"
 
-const initSlider = () => {
-  const slidee = document.querySelector(".carousel-slide .Slidee");
-  const Butn = document.querySelector(".carousel-slide .Icon");
-  Butn.forEach((span) => {
-    span.addEventListener("click", () => {
-      const direction = span.id === "left" ? -1 : 1;
-      const scrollAmount = slidee.clientWidth * direction;
-      slidee.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    });
-  });
-};
+
 const Homepage = () => {
+  
   return (
     <>
       <Container fluid>
@@ -315,7 +306,9 @@ const Homepage = () => {
           </Row>
         </Container>
       </Container>
+      
     </>
+    
   );
 };
 export default Homepage;
