@@ -7,11 +7,48 @@ import { AiOutlineLinkedin } from "react-icons/ai";
 import { RiTwitterXLine } from "react-icons/ri";
 import { AiFillFacebook } from "react-icons/ai";
 import { GoArrowLeft } from "react-icons/go";
-import { GoArrowRight } from "react-icons/go"
+import { GoArrowRight } from "react-icons/go";
+import Slider from "react-slick";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Homepage = () => {
-  
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <Container fluid>
@@ -282,7 +319,26 @@ const Homepage = () => {
           </div>
         </div>
       </Container>
-      <Container fluid className="footer">
+      <div className="slider-container">
+        <Slider {...settings}>
+          <div className="">
+            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
+          </div>
+          <div className="">
+            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
+          </div>
+          <div className="">
+            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
+          </div>
+          <div className="">
+            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
+          </div>
+          <div className="">
+            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
+          </div>
+        </Slider>
+      </div>
+      <Container fluid className="footer mt-5">
         <Container>
           <Row className="">
             <Col md={6}>
@@ -306,9 +362,7 @@ const Homepage = () => {
           </Row>
         </Container>
       </Container>
-      
     </>
-    
   );
 };
 export default Homepage;
