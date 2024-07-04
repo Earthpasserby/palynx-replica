@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Navbar, Nav, Row, Col, Image, Card } from "react-bootstrap";
 import { RiArrowRightUpLine } from "react-icons/ri";
@@ -9,44 +9,26 @@ import { AiFillFacebook } from "react-icons/ai";
 import { GoArrowLeft } from "react-icons/go";
 import { GoArrowRight } from "react-icons/go";
 import Slider from "react-slick";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { GiHidden } from "react-icons/gi";
 
 const Homepage = () => {
-  var settings = {
-    dots: true,
+  let sliderRef = useRef(null);
+  const next = () => {
+    sliderRef.slickNext();
+  };
+  const previous = () => {
+    sliderRef.slickPrev();
+  };
+
+  const settings = {
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+    overflow: false,
   };
 
   return (
@@ -319,25 +301,55 @@ const Homepage = () => {
           </div>
         </div>
       </Container>
-      <div className="slider-container">
-        <Slider {...settings}>
-          <div className="">
-            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
+      <Container fluid>
+        <Container>
+          <div className="slider-container">
+            <Slider
+              ref={(slider) => {
+                sliderRef = slider;
+              }}
+              {...settings}
+            >
+              <div key={1}>
+                <Image
+                  src="./gym.webp"
+                  alt="Los Angeles"
+                  class="d-block w-100"
+                />
+              </div>
+              <div key={2}>
+                <Image
+                  src="./gym.webp"
+                  alt="Los Angeles"
+                  class="d-block w-100"
+                />
+              </div>
+              <div key={3}>
+                <Image
+                  src="./gym.webp"
+                  alt="Los Angeles"
+                  class="d-block w-100"
+                />
+              </div>
+              <div key={3}>
+                <Image
+                  src="./gym.webp"
+                  alt="Los Angeles"
+                  class="d-block w-100"
+                />
+              </div>
+            </Slider>
+            <div style={{ textAlign: "center" }}>
+              <button className=" Icon button" onClick={previous}>
+                <GoArrowLeft />
+              </button>
+              <button className="button mx-2 Icon " onClick={next}>
+                <GoArrowRight />
+              </button>
+            </div>
           </div>
-          <div className="">
-            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
-          </div>
-          <div className="">
-            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
-          </div>
-          <div className="">
-            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
-          </div>
-          <div className="">
-            <Image src="./boat2.webp" alt="Los Angeles" class="d-block w-25" />
-          </div>
-        </Slider>
-      </div>
+        </Container>
+      </Container>
       <Container fluid className="footer mt-5">
         <Container>
           <Row className="">
