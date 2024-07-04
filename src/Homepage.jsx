@@ -11,7 +11,6 @@ import { GoArrowRight } from "react-icons/go";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { GiHidden } from "react-icons/gi";
 
 const Homepage = () => {
   let sliderRef = useRef(null);
@@ -28,7 +27,34 @@ const Homepage = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
-    overflow: false,
+    initialSlide: 0,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 390,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -234,8 +260,57 @@ const Homepage = () => {
             like minds in your community through a variety of activities.
           </p>
         </div>
+        <div className="slider-container mt-5">
+          <Slider
+            ref={(slider) => {
+              sliderRef = slider;
+            }}
+            {...settings}
+          >
+            <div class="card-34">
+              <Image
+                src="./girl.webp"
+                alt="Los Angeles"
+                className="pic-slide"
+              />
+            </div>
+            <div className="card-34 ">
+              <Image
+                src="./boat.webp"
+                alt="Los Angeles"
+                className="pic-slide"
+              />
+            </div>
+            <div className="card-34 ">
+              <Image
+                src="./boat2.webp"
+                alt="Los Angeles"
+                className="pic-slide"
+              />
+            </div>
+            <div className=" card-34">
+              <Image src="./gym.webp" alt="Los Angeles" className="pic-slide" />
+            </div>
+          </Slider>
+          <div className="float-end mt-3  mb-5">
+            <span id="left" className="Icon" onClick={previous}>
+              <GoArrowLeft />
+            </span>
+            <span id="right" className="Icon mx-4" onClick={next}>
+              <GoArrowRight />
+            </span>
+          </div>
+          {/* <div style={{ textAlign: "center" }}>
+              <button className=" Icon button" onClick={previous}>
+                <GoArrowLeft />
+              </button>
+              <button className="button mx-2 Icon " onClick={next}>
+                <GoArrowRight />
+              </button>
+            </div> */}
+        </div>
 
-        <div id="demo" class="carousel-slide mt-5" data-bs-ride="carousel">
+        {/* <div id="demo" class="carousel-slide mt-5" data-bs-ride="carousel">
           <div class="carousel Slidee">
             <div className="card card-34">
               <Image
@@ -262,15 +337,7 @@ const Homepage = () => {
               <Image src="./gym.webp" alt="Los Angeles" class="d-block w-100" />
             </div>
           </div>
-          <div className="float-end mt-5 mb-5">
-            <span id="left" className="Icon">
-              <GoArrowLeft />
-            </span>
-            <span id="right" className="Icon mx-4">
-              <GoArrowRight />
-            </span>
-          </div>
-        </div>
+        </div> */}
       </Container>
       <Container
         fluid
@@ -301,56 +368,10 @@ const Homepage = () => {
           </div>
         </div>
       </Container>
-      <Container fluid>
-        <Container>
-          <div className="slider-container">
-            <Slider
-              ref={(slider) => {
-                sliderRef = slider;
-              }}
-              {...settings}
-            >
-              <div key={1}>
-                <Image
-                  src="./gym.webp"
-                  alt="Los Angeles"
-                  class="d-block w-100"
-                />
-              </div>
-              <div key={2}>
-                <Image
-                  src="./gym.webp"
-                  alt="Los Angeles"
-                  class="d-block w-100"
-                />
-              </div>
-              <div key={3}>
-                <Image
-                  src="./gym.webp"
-                  alt="Los Angeles"
-                  class="d-block w-100"
-                />
-              </div>
-              <div key={3}>
-                <Image
-                  src="./gym.webp"
-                  alt="Los Angeles"
-                  class="d-block w-100"
-                />
-              </div>
-            </Slider>
-            <div style={{ textAlign: "center" }}>
-              <button className=" Icon button" onClick={previous}>
-                <GoArrowLeft />
-              </button>
-              <button className="button mx-2 Icon " onClick={next}>
-                <GoArrowRight />
-              </button>
-            </div>
-          </div>
-        </Container>
-      </Container>
-      <Container fluid className="footer mt-5">
+      {/* <Container fluid className="mt-5">
+        <Container></Container>
+      </Container> */}
+      <Container fluid className="footer">
         <Container>
           <Row className="">
             <Col md={6}>

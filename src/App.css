@@ -176,6 +176,7 @@
   height: 400px;
   border-radius: 24px;
   margin-bottom: 20px;
+  margin-right: 25px;
 }
 
 .cad1 {
@@ -412,13 +413,15 @@
   font-size: 16px;
 }
 .card-34 {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 420px !important;
+  height: 10%;
+  margin-right: 1125px !important;
   border-radius: 24px;
   background-color: #fdf4ee;
 }
-
+.pic-slide{
+  width: 430px;
+}
 
 .carousel::-webkit-scrollbar {
   display: none;
@@ -608,6 +611,24 @@
     gap: 0px;
     border: 1px 0px 0px 0px;
   }
+  .slider-container{
+    display: block;
+  }
+.card-34 {
+  width: 80px !important;
+  height: 150px !important;  
+  margin-right: 0 !important;
+  border-radius: 24px;
+  background-color: #fdf4ee;
+}
+.pic-slide{
+  width: 80px;
+}
+.before-Footer{
+  margin-top: -100px;
+}
+
+
 
 }
 @media screen and (max-width: 900px) {
@@ -620,4 +641,18 @@
   .wrapper .carousel {
     grid-auto-columns: 100%;
   }
+  .card-34 {
+  width: 99% !important;
+  height: 100% !important;  
+  margin-right: 13px !important;
+  border-radius: 24px;
+  background-color: #fdf4ee;
+}
+.pic-slide{
+  width: 100%;
+  height: 100%;
+}
+.slider-container{
+  overflow: hidden;
+}
 }
